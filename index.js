@@ -17,8 +17,6 @@ const server = app.listen(process.env.PORT || 8080, () => {
 })
 
 // testReminder
-testReminderRegular()
-
 var testReminderTimer
 const testDate = new Date(2023, 1, 13)
 const getTestReminderText = () => {
@@ -28,8 +26,10 @@ const getTestReminderText = () => {
 const testReminderRegular = () => {
     clearTimeout(testReminderTimer)
     bot.broadcast(getTestReminderText())
-    testReminderTimer = setInterval(testReminder, 86400000)
+    testReminderTimer = setInterval(testReminderRegular, 86400000)
 }
+
+testReminderRegular()
 
 // reply
 const replyConfig = {
