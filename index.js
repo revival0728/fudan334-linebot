@@ -21,7 +21,7 @@ var testReminderTimer
 const testDate = new Date(2023, 1, 13)
 const getTestReminderText = () => {
     let left = new Date(testDate.getTime() - Date.now())
-    return `學測到數: 剩下 ${left.getDay()} 天`
+    return `學測到數: 剩下 ${left.getTime() / 86400000} 天`
 }
 const testReminderRegular = () => {
     clearTimeout(testReminderTimer)
