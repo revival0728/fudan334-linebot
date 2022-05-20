@@ -16,12 +16,34 @@ const server = app.listen(process.env.PORT || 8080, () => {
     console.log(`Running on port ${port}`)
 })
 
+// testReminder
+testReminderRegular()
+
+var testReminderTimer
+const testDate = new Date(2023, 1, 13)
+const getTestReminderText = () => {
+    let left = new Date(testDate.getTime() - Date.now())
+    return `學測到數: 剩下 ${left.getDay()} 天`
+}
+const testReminderRegular = () => {
+    clearTimeout(testReminderTimer)
+    bot.broadcast(getTestReminderText())
+    testReminderTimer = setInterval(testReminder, 86400000)
+}
+
+// reply
+const replyConfig = {
+    '告訴我學測剩下幾天': getTestReminderText
+}
 bot.on('message', (event) => {
     if(event.message.type == 'text') {
-        event.reply('hello').then((data) => {
-            console.log('success')
-        }).catch(err => {
-            console.log(err)
-        })
+        let msg = event.message.text
+        if(msg in replyConfig) {
+            event.reply(replyConfig[msg]()).then((data) => {
+                console.log('success')
+            }).catch(err => {
+                console.log(err)
+            })
+        }
     }
 })
