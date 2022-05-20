@@ -18,6 +18,10 @@ const server = app.listen(process.env.PORT || 8080, () => {
 
 bot.on('message', (event) => {
     if(event.message.type == 'text') {
-        event.reply('hello')
+        event.reply('hello').then((data) => {
+            console.log('success')
+        }).catch(err => {
+            console.log(err)
+        })
     }
 })
