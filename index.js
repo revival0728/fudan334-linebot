@@ -26,7 +26,7 @@ const getTestReminderText = () => {
 const testReminderRegular = () => {
     clearTimeout(testReminderTimer)
     bot.broadcast(getTestReminderText())
-    testReminderTimer = setInterval(testReminderRegular, 86400000)
+    testReminderTimer = setInterval(testReminderRegular, 1000)
 }
 
 testReminderRegular()
