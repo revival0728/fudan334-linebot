@@ -1,5 +1,6 @@
 const express = require('express')
 const linebot = require('linebot')
+const https = require('https')
 
 var bot = linebot({
     channelId: '1657151830',
@@ -15,6 +16,11 @@ const server = app.listen(process.env.PORT || 8080, () => {
     let port = server.address().port
     console.log(`Running on port ${port}`)
 })
+
+// keep alive
+setInterval(function() {
+    https.get('https://fudanttf-linebot.herokuapp.com/')
+}, 300000); // every 5 minutes (300000)
 
 // testReminder
 var testReminderTimer
