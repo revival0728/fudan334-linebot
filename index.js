@@ -18,9 +18,9 @@ const server = app.listen(process.env.PORT || 8080, () => {
 })
 
 // keep alive
-setInterval(function() {
+/*setInterval(function() {
     https.get('https://fudanttf-linebot.herokuapp.com/')
-}, 300000); // every 5 minutes (300000)
+}, 300000); // every 5 minutes (300000)*/
 
 // testReminder
 var testReminderTimer
