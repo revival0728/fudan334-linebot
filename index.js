@@ -3,9 +3,9 @@ const linebot = require('linebot')
 const https = require('https')
 
 var bot = linebot({
-    channelId: '1657151830',
-    channelSecret: '42c7c1216bf6bd430f897016fef1fc5a',
-    channelAccessToken: 'v9VoiM+OQjUQCZcTgK/u5rrj3JpGqHj01L3TJVPZH/QiFZfOza0ints4lFAOFom1YYtec1wnicLWA5XTWaOTeumrFr3itU3MQ6iYeksCoDkGiPGOssNN2lQ9rOB1NhqyrlBa3I3OMDqv/L3wxphFbQdB04t89/1O/w1cDnyilFU='
+    channelId: 'MYCHANNELID',
+    channelSecret: 'MYCHANNELSECRET',
+    channelAccessToken: 'MYCHANNELACCESSTOKEN'
 })
 
 const app = express()
